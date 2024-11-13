@@ -21,6 +21,11 @@ contract MyToken {
 
         // Assert total supply should not be less than the balance
         assert(totalSupply >= balances[_address]);
+
+        // Revert if the total supply goes negative
+        if (totalSupply < 0) {
+            revert("Total supply cannot be negative");
+        }
     }
 
     // burn function
@@ -34,10 +39,21 @@ contract MyToken {
 
         // Assert that balance cannot go negative
         assert(balances[_address] >= 0);
+    }
 
-        // Revert if the total supply goes negative
-        if (totalSupply < 0) {
-            revert("Total supply cannot be negative");
-        }
+    // transfer function
+    function transfer(address _to, uint _value) public {
+        // Check if the sender has enough balance to transfer
+        require(balances[msg.sender] >= _value, "Insufficient balance to transfer");
+
+        // Deduct from sender and add to recipient
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+
+        // Reduce the total supply by the transferred amount
+        totalSupply -= _value;
+
+        // Assert total supply cannot be negative
+        assert(totalSupply >= 0);
     }
 }

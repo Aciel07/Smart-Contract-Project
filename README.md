@@ -10,7 +10,7 @@ This Solidity project is a modified simple token system that implements the `req
 
 - **Burning Functionality**: Allows token holders to destroy tokens, reducing both the total supply and the balance of the specified address. The function ensures that the address has sufficient tokens before proceeding with the burn.
 
-- **Transfer Functionality with Supply Reduction**: Users can transfer tokens to other addresses. During each transfer, the total supply of tokens is reduced by the transferred amount. This modification ensures that token supply decreases with every transfer. Checks are also included to confirm that the sender has a sufficient balance for the transfer.
+- **Transfer Functionality**: Users can transfer tokens to other addresses. During each transfer, the total supply of tokens is reduced by the transferred amount. This modification ensures that token supply decreases with every transfer. Checks are also included to confirm that the sender has a sufficient balance for the transfer.
 
 ## Resources Used
 - **Remix IDE**: [Remix Ethereum](https://remix.ethereum.org/) for coding and testing the Solidity contract.

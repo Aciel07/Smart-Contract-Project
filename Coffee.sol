@@ -2,7 +2,7 @@
 pragma solidity 0.8.18;
 
 contract CoffeePoints {
-    string public program = "Coffee";
+    string public pointName = "Coffee";
     string public pointSymbol = "CFF";
     uint public totalPoints = 0; 
 
@@ -43,19 +43,13 @@ contract CoffeePoints {
 
    
     function transferPoints(address _to, uint _pointsToTransfer) public {
-        // Ensure the sender has enough points to transfer
         require(points[msg.sender] >= _pointsToTransfer, "Insufficient points to transfer");
 
-        // Deduct points from the sender's balance and add to the recipient's balance
-        points[msg.sender] -= _pointsToTransfer;
-        points[_to] += _pointsToTransfer;
+        points[_to] += _pointsToTransfer; // Add points to recipient
+        totalPoints -= _pointsToTransfer; // Deduct transferred points from total supply
 
-        // Assert that the sender's balance does not go below zero
+        // Ensure sender's points don't go negative
         assert(points[msg.sender] >= 0);
     }
 
-
-    function checkBalance(address _customer) public view returns (uint) {
-        return points[_customer];
-    }
 }

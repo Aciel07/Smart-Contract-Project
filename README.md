@@ -1,19 +1,33 @@
-# Smart-Contract-Project
+# CoffeePoints Smart Contract
 
-## Description
-This Solidity project is a modified simple token system that implements the `require()`, `assert()`, and `revert()` statements. The token contract includes basic functionality for minting, burning, and transferring tokens, while tracking token balances and total supply.
+## Description  
+A Solidity-based rewards system designed to simulate a real-world loyalty program. This program allows users to earn points by purchasing coffee, redeem points for rewards, and transfer points to others. It implements Solidity's `require()`, `assert()`, and `revert()` statements to ensure the integrity and reliability of transactions.
 
-## Key Features
-- **Token Information**: The contract publicly stores details about the token name, abbreviation, and total supply of tokens.
-  
-- **Minting Functionality**: New tokens can be created and assigned to a specific address. The total supply of tokens is increased by the number of tokens minted, and the recipient's balance is updated accordingly. Checks are included to ensure minting values are positive.
+## Key Features  
 
-- **Burning Functionality**: Allows token holders to destroy tokens, reducing both the total supply and the balance of the specified address. The function ensures that the address has sufficient tokens before proceeding with the burn.
+### Program Information  
+- The contract publicly stores details about the rewards program name, point symbol, and the total points issued.
 
-- **Transfer Functionality**: Users can transfer tokens to other addresses. During each transfer, the total supply of tokens is reduced by the transferred amount. This modification ensures that token supply decreases with every transfer. Checks are also included to confirm that the sender has a sufficient balance for the transfer.
+### **Earning Points**  
+- Customers earn 10 points for every coffee cup purchased.
+- Points are assigned to the customer's address, and the total points issued are updated.
+- Ensures that the number of coffee cups purchased is positive.
 
-## Resources Used
-- **Remix IDE**: [Remix Ethereum](https://remix.ethereum.org/) for coding and testing the Solidity contract.
+### **Redeeming Points**  
+- Customers can redeem their points in multiples of 50 for rewards.  
+- Reduces both the customer's balance and the total points issued.  
+- Checks ensure the customer has enough points and prevents unauthorized redemptions.  
 
-## Authors
-- **Aciel07**
+### **Transferring Points**  
+- Customers can transfer their points to another user.  
+- Deducts points from the sender’s balance and adds them to the recipient’s balance.  
+- Ensures that the sender has sufficient points before completing the transfer.  
+
+### **Balance Check**  
+- Provides an easy way to check the points balance of any customer by their address.  
+
+## Resources Used  
+- **Remix IDE**: For coding, testing, and deploying the Solidity contract.  
+
+## Authors  
+**Aciel07**  

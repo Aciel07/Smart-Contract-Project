@@ -22,7 +22,6 @@ A Solidity-based rewards system designed to simulate a real-world loyalty progra
 - Provides an easy way to check the points balance of any customer by their address.  
 
 ## Resources Used  
-- **Remix IDE**: For coding, testing, and deploying the Solidity contract.  
-
+- **Remix IDE**
 ## Authors  
 **Aciel07**  

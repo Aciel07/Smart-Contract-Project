@@ -4,7 +4,7 @@ pragma solidity 0.8.18;
 contract CoffeePoints {
     string public program = "Coffee";
     string public pointSymbol = "CFF";
-    uint public totalPointsIssued = 0; 
+    uint public totalPoints = 0; 
 
     // Mapping to keep track of each customer's points balance
     mapping(address => uint) public points;
@@ -18,11 +18,11 @@ contract CoffeePoints {
         uint earnedPoints = _cupsPurchased * 10;
 
         // Update total points issued and the customer's balance
-        totalPointsIssued += earnedPoints;
+        totalPoints += earnedPoints;
         points[_customer] += earnedPoints;
 
         // Assert that the total points issued are not less than the customer's balance
-        assert(totalPointsIssued >= points[_customer]);
+        assert(totalPoints >= points[_customer]);
     }
 
     
@@ -35,7 +35,7 @@ contract CoffeePoints {
 
         // Deduct redeemed points from the customer's balance and the total points issued
         points[_customer] -= _pointsToRedeem;
-        totalPointsIssued -= _pointsToRedeem;
+        totalPoints -= _pointsToRedeem;
 
         // Assert that the customer's balance does not go below zero
         assert(points[_customer] >= 0);
